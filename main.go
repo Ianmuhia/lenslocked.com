@@ -33,12 +33,13 @@ func main() {
 	homeView = views.NewView("bootstrap", "views/home.html")
 	contactView = views.NewView("bootstrap", "views/contact.html")
 
-	mux := mux.NewRouter()
+	r := mux.NewRouter()
+	r.HandleFunc("/", home)
 
-	mux.HandleFunc("/", home)
-	mux.HandleFunc("/contact", contact)
+	//r.HandleFunc("/", home)
+	//r.HandleFunc("/contact", contact)
 
-	err := http.ListenAndServe(":8080", mux)
+	err := http.ListenAndServe(":8080", r)
 	if err != nil {
 		panic(err)
 	}
