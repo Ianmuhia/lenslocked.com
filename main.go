@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	// "github.com/gorilla/mux"
+	"github.com/gorilla/mux"
+
 	"github.com/ianmuhia/lenslocked.com/views"
 
 	"net/http"
@@ -15,7 +15,7 @@ var (
 
 func home(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	err := homeView.Template.Execute(w, nil)
+	err := homeView.Template.ExecuteTemplate(w, homeView.Layout, nil)
 	if err != nil {
 		panic(err)
 	}
@@ -23,37 +23,22 @@ func home(w http.ResponseWriter, req *http.Request) {
 
 func contact(w http.ResponseWriter, req *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
-	err := contactView.Template.Execute(w, nil)
+	err := contactView.Template.ExecuteTemplate(w, contactView.Layout, nil)
 	if err != nil {
 		panic(err)
 	}
 }
 
-// func main() {
-// 	router := gin.Default()
-// 	router.LoadHTMLGlob("templates/*")
-// 	//router.LoadHTMLFiles("templates/template1.html", "templates/template2.html")
-// 	router.GET("/index", func(c *gin.Context) {
-// 		c.HTML(http.StatusOK, "test.gohtml", gin.H{
-// 			"title": "Main website",
-// 		})
-// 	})
-// 	router.Run(":8080")
-// }
-
 func main() {
-	homeView = views.NewView("bootstrap", "views/home.gohtml")
-	contactView = views.NewView("bootstrap", "views/contact.gohtml")
-	//handlers := BaseHandlers()
-	handlers := BaseHandlers()
+	homeView = views.NewView("bootstrap", "views/home.html")
+	contactView = views.NewView("bootstrap", "views/contact.html")
 
 	mux := mux.NewRouter()
 
-	mux.HandleFunc("/", handlers.Landing)
-	// mux.HandleFunc("/signup", handlers.signup)
+	mux.HandleFunc("/", home)
+	mux.HandleFunc("/contact", contact)
 
-	// router.HandleFunc("/contact", contact)
-	err := http.ListenAndServe(":8000", mux)
+	err := http.ListenAndServe(":8080", mux)
 	if err != nil {
 		panic(err)
 	}
