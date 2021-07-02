@@ -6,6 +6,11 @@ import (
 	"path/filepath"
 )
 
+var (
+	LayoutDir   string = "views/layouts/"
+	TemplateExt string = ".html"
+)
+
 func NewView(layout string, files ...string) *View {
 	files = append(files, layoutFiles()...)
 	t, err := template.ParseFiles(files...)
@@ -28,7 +33,7 @@ type View struct {
  * files used in our application.
  */
 func layoutFiles() []string {
-	files, err := filepath.Glob("views/layouts/*.html")
+	files, err := filepath.Glob(LayoutDir + "*" + TemplateExt)
 	if err != nil {
 		panic(err)
 	}
