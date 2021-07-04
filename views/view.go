@@ -29,9 +29,7 @@ type View struct {
 	Layout   string
 }
 
-/**
- * Redner is used to render the view with the predifined layout.
- */
+// Render /**
 func (v *View) Render(w http.ResponseWriter, data interface{}) error {
 	return v.Template.ExecuteTemplate(w, v.Layout, data)
 }

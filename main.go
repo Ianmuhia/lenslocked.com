@@ -11,6 +11,7 @@ import (
 var (
 	homeView    *views.View
 	contactView *views.View
+	signupView  *views.View
 )
 
 func home(w http.ResponseWriter, req *http.Request) {
@@ -30,15 +31,24 @@ func contact(w http.ResponseWriter, req *http.Request) {
 	// 	panic(err)
 	// }
 }
+func signup(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Content-Type", "text/html")
+	must(signupView.Render(w, nil))
+	// err := contactView.Template.ExecuteTemplate(w, contactView.Layout, nil)
+	// if err != nil {
+	// 	panic(err)
+	// }
+}
 
 func main() {
 	homeView = views.NewView("bootstrap", "views/home.html")
 	contactView = views.NewView("bootstrap", "views/contact.html")
+	signupView = views.NewView("bootstrap", "views/signup.html")
 
 	r := mux.NewRouter()
 	r.HandleFunc("/", home)
-
 	r.HandleFunc("/contact", contact)
+	r.HandleFunc("/signup", signup)
 
 	err := http.ListenAndServe(":8080", r)
 	if err != nil {
