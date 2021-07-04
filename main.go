@@ -39,7 +39,8 @@ func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", home)
 	r.HandleFunc("/contact", contact)
-	r.HandleFunc("/signup", userC.New)
+	r.HandleFunc("/signup", userC.New).Methods("GET")
+	r.HandleFunc("/signup", userC.Create).Methods("POST")
 
 	err := http.ListenAndServe(":8080", r)
 	if err != nil {

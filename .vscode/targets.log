@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
- 
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul  4 10:30:50 2021
+# Make data base, printed on Sun Jul  4 23:16:20 2021
 
 # Variables
 
@@ -23,7 +21,7 @@ SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-3e9f7e0c-6788-44dd-8857-cb08646ea8e1.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c6188b0e-1a29-4e9a-ad6b-3f5b1bd1bbb4.sock
 # environment
 LC_NAME = en_US.UTF-8
 # environment
@@ -97,7 +95,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 14208
+VSCODE_PID = 61276
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -191,7 +189,7 @@ MANAGERPID = 2972
 # environment
 LC_MEASUREMENT = en_US.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 14208
+GIO_LAUNCHED_DESKTOP_FILE_PID = 61276
 # environment
 VSCODE_NODE_CACHED_DATA_DIR = /home/ianmuhia/.config/Code/CachedData/507ce72a4466fbb27b715c3722558bb15afa9f48
 # environment
@@ -247,9 +245,9 @@ LC_IDENTIFICATION = en_US.UTF-8
 
 # Directories
 
-# . (device 2051, inode 15601016): 11 files, no impossibilities.
+# . (device 2051, inode 15601016): 12 files, no impossibilities.
 
-# 11 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -280,7 +278,6 @@ run:
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
- 
 #  Last modified 2021-06-30 21:28:20.503542112
 #  File has been updated.
 #  Successfully updated.
@@ -292,14 +289,16 @@ makefile:
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
-
-# strcache buffers: 1 (0) / strings = 17 / storage = 130 B / avg = 7 B
-# current buf: size = 8162 B / used = 130 B / count = 17 / avg = 7 B
-
-# strcache performance: lookups = 22 / hit rate = 22%
-# hash-table stats:
  
-# Load=17/8192=0%, Rehash=0, Collisions=0/22=0%
-# Finished Make data base on Sun Jul  4 10:30:50 2021
+make: *** No rule to make target 'all'.  Stop.
+ 
+
+# strcache buffers: 1 (0) / strings = 18 / storage = 142 B / avg = 7 B
+# current buf: size = 8162 B / used = 142 B / count = 18 / avg = 7 B
+
+# strcache performance: lookups = 23 / hit rate = 21%
+# hash-table stats:
+# Load=18/8192=0%, Rehash=0, Collisions=0/23=0%
+# Finished Make data base on Sun Jul  4 23:16:20 2021
 
  
