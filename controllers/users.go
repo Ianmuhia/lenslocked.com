@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/gorilla/schema"
 	"github.com/ianmuhia/lenslocked.com/views"
 )
 
@@ -18,7 +17,7 @@ type Users struct {
 
 func NewUsers() *Users {
 	return &Users{
-		NewView: views.NewView("bootstrap", "views/auth/signup.html"),
+		NewView: views.NewView("bootstrap", "auth/signup"),
 	}
 
 }
@@ -27,24 +26,19 @@ func NewUsers() *Users {
  * GET /signup
  */
 func (u *Users) New(w http.ResponseWriter, r *http.Request) {
-	u.NewView.Render(w, nil)
+	err := u.NewView.Render(w, nil)
+	if err != nil {
+		return
+	}
 }
 
-/**
- * creates new user account
- * POST /signup
- */
+// Create /**
 func (u *Users) Create(w http.ResponseWriter, r *http.Request) {
 
-	if err := r.ParseForm(); err != nil {
-		panic(err)
-	}
-
-	dec := schema.NewDecoder()
 	var form SignupForm
-	if err := dec.Decode(&form, r.PostForm); err != nil {
+	if err := parseForm(r, &form); err != nil {
 		panic(err)
 	}
-	fmt.Fprintln(w, form)
+	_, _ = fmt.Fprintln(w, form)
 
 }

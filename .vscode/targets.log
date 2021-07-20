@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+ 
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Jul  4 23:16:20 2021
+# Make data base, printed on Tue Jul 20 22:39:03 2021
 
 # Variables
 
@@ -21,7 +23,7 @@ SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c6188b0e-1a29-4e9a-ad6b-3f5b1bd1bbb4.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-825b9579-4789-433c-8e8b-27905933c6f2.sock
 # environment
 LC_NAME = en_US.UTF-8
 # environment
@@ -95,7 +97,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 61276
+VSCODE_PID = 32287
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -103,7 +105,7 @@ XDG_SESSION_TYPE = x11
 # environment
 XDG_DATA_HOME = /home/ianmuhia/.local/share
 # environment
-SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/3227,unix/pop-os:/tmp/.ICE-unix/3227
+SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/3036,unix/pop-os:/tmp/.ICE-unix/3036
 # automatic
 *F = $(notdir $*)
 # environment
@@ -147,7 +149,7 @@ LC_MONETARY = en_US.UTF-8
 # environment
 LC_TIME = en_US.UTF-8
 # environment
-INVOCATION_ID = 2792321b55cc49aba6adf81b2a082023
+INVOCATION_ID = 49efdc870ccb4488831f08a4381193e0
 # environment
 XDG_CONFIG_HOME = /home/ianmuhia/.config
 # environment
@@ -185,11 +187,11 @@ GTK_MODULES = gail:atk-bridge:appmenu-gtk-module
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 2972
+MANAGERPID = 2786
 # environment
 LC_MEASUREMENT = en_US.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 61276
+GIO_LAUNCHED_DESKTOP_FILE_PID = 32287
 # environment
 VSCODE_NODE_CACHED_DATA_DIR = /home/ianmuhia/.config/Code/CachedData/507ce72a4466fbb27b715c3722558bb15afa9f48
 # environment
@@ -201,7 +203,7 @@ XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-JOURNAL_STREAM = 8:40264
+JOURNAL_STREAM = 8:37713
 # environment
 GOMODCACHE = /home/ianmuhia/go/pkg/mod
 # environment
@@ -278,6 +280,7 @@ run:
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
+ 
 #  Last modified 2021-06-30 21:28:20.503542112
 #  File has been updated.
 #  Successfully updated.
@@ -289,9 +292,6 @@ makefile:
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
- 
-make: *** No rule to make target 'all'.  Stop.
- 
 
 # strcache buffers: 1 (0) / strings = 18 / storage = 142 B / avg = 7 B
 # current buf: size = 8162 B / used = 142 B / count = 18 / avg = 7 B
@@ -299,6 +299,6 @@ make: *** No rule to make target 'all'.  Stop.
 # strcache performance: lookups = 23 / hit rate = 21%
 # hash-table stats:
 # Load=18/8192=0%, Rehash=0, Collisions=0/23=0%
-# Finished Make data base on Sun Jul  4 23:16:20 2021
+# Finished Make data base on Tue Jul 20 22:39:03 2021
 
  
