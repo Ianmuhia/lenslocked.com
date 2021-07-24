@@ -56,7 +56,7 @@ func layoutFiles() []string {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Print(files)
+	//fmt.Print(files)
 	return files
 }
 

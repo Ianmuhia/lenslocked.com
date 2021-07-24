@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Jul 20 22:39:03 2021
+# Make data base, printed on Sun Jul 25 00:48:54 2021
 
 # Variables
 
@@ -23,7 +23,7 @@ SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-825b9579-4789-433c-8e8b-27905933c6f2.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-c99e3ad0-18cb-47f4-88c6-f6fc1d687b71.sock
 # environment
 LC_NAME = en_US.UTF-8
 # environment
@@ -97,7 +97,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 32287
+VSCODE_PID = 23605
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -105,7 +105,7 @@ XDG_SESSION_TYPE = x11
 # environment
 XDG_DATA_HOME = /home/ianmuhia/.local/share
 # environment
-SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/3036,unix/pop-os:/tmp/.ICE-unix/3036
+SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/3273,unix/pop-os:/tmp/.ICE-unix/3273
 # automatic
 *F = $(notdir $*)
 # environment
@@ -149,7 +149,7 @@ LC_MONETARY = en_US.UTF-8
 # environment
 LC_TIME = en_US.UTF-8
 # environment
-INVOCATION_ID = 49efdc870ccb4488831f08a4381193e0
+INVOCATION_ID = 741fd9ad408e40cbaed202df150b8fc3
 # environment
 XDG_CONFIG_HOME = /home/ianmuhia/.config
 # environment
@@ -187,11 +187,11 @@ GTK_MODULES = gail:atk-bridge:appmenu-gtk-module
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 2786
+MANAGERPID = 2867
 # environment
 LC_MEASUREMENT = en_US.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 32287
+GIO_LAUNCHED_DESKTOP_FILE_PID = 23605
 # environment
 VSCODE_NODE_CACHED_DATA_DIR = /home/ianmuhia/.config/Code/CachedData/507ce72a4466fbb27b715c3722558bb15afa9f48
 # environment
@@ -203,7 +203,7 @@ XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-JOURNAL_STREAM = 8:37713
+JOURNAL_STREAM = 8:37504
 # environment
 GOMODCACHE = /home/ianmuhia/go/pkg/mod
 # environment
@@ -299,6 +299,6 @@ makefile:
 # strcache performance: lookups = 23 / hit rate = 21%
 # hash-table stats:
 # Load=18/8192=0%, Rehash=0, Collisions=0/23=0%
-# Finished Make data base on Tue Jul 20 22:39:03 2021
+# Finished Make data base on Sun Jul 25 00:48:54 2021
 
  
