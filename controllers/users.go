@@ -37,6 +37,7 @@ func (u *Users) Create(w http.ResponseWriter, r *http.Request) {
 
 	var form SignupForm
 	if err := parseForm(r, &form); err != nil {
+
 		panic(err)
 	}
 	_, _ = fmt.Fprintln(w, form)
