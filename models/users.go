@@ -13,7 +13,8 @@ var (
 	/**
 	 * ErrNotFound is returned when a reasouce is not found
 	 */
-	ErrNotFound = errors.New("models: reasource not found")
+	ErrNotFound  = errors.New("models: reasource not found")
+	ErrInvalidID = errors.New("models: ID provided was invalid")
 )
 
 func NewUserService(connectionInfo string) (*UserService, error) {
@@ -46,16 +47,6 @@ func (us *UserService) ByID(id uint) (*User, error) {
 	// err := db.First(&user).Error
 	err := first(db, &user)
 	return &user, err
-	// err := us.db.Where("id = ?", id).First(&user).Error
-	// switch err {
-	// case nil:
-	// 	return &user, nil
-	// case gorm.ErrRecordNotFound:
-	// 	return nil, ErrNotFound
-	// default:
-	// 	return nil, err
-
-	// }
 
 }
 func (us *UserService) ByEmail(email string) (*User, error) {
@@ -64,17 +55,20 @@ func (us *UserService) ByEmail(email string) (*User, error) {
 	// err := db.First(&user).Error
 	err := first(db, &user)
 	return &user, err
-	// switch err {
-	// case nil:
-	// 	return &user, nil
-	// case gorm.ErrRecordNotFound:
-	// 	return nil, ErrNotFound
-	// default:
-	// 	return nil, err
 
-	// }
-	// return nil
-	// return us.db.Save(user).Error
+}
+func (us *UserService) Delete(id uint) error {
+	if id == 0 {
+		return ErrInvalidID
+	}
+	user := User{Model: gorm.Model{ID: id}}
+	return us.db.Delete(&user).Error
+	// var user User
+	// db := us.db.Where("email = ?", email)
+	// err := db.First(&user).Error
+	// err := first(db, &user)
+	// return &user, err
+
 }
 func first(db *gorm.DB, user *User) error {
 	err := db.First(user).Error
@@ -95,12 +89,23 @@ func (us *UserService) Update(user *User) error {
 	return us.db.Save(user).Error
 }
 
-func (us *UserService) DestructiveReset() {
-	us.db.Migrator().DropTable(&User{})
-	us.db.AutoMigrate(&User{})
+func (us *UserService) DestructiveReset() error {
+
+	if err := us.db.Migrator().DropTable(&User{}); err != nil {
+		return err
+	}
+	return us.AutoMigrate()
+
 }
 
-func (us *UserService) Close(error) {
+func (us *UserService) AutoMigrate() error {
+	if err := us.db.Migrator().AutoMigrate(&User{}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (us *UserService) Close() {
 	db, _ := us.db.DB()
 	db.Close()
 
