@@ -42,17 +42,57 @@ type UserService struct {
  */
 func (us *UserService) ByID(id uint) (*User, error) {
 	var user User
-	err := us.db.Where("id = ?", id).First(&user).Error
-	switch err {
-	case nil:
-		return &user, nil
-	case gorm.ErrRecordNotFound:
-		return nil, ErrNotFound
-	default:
-		return nil, err
+	db := us.db.Where("id = ?", id)
+	// err := db.First(&user).Error
+	err := first(db, &user)
+	return &user, err
+	// err := us.db.Where("id = ?", id).First(&user).Error
+	// switch err {
+	// case nil:
+	// 	return &user, nil
+	// case gorm.ErrRecordNotFound:
+	// 	return nil, ErrNotFound
+	// default:
+	// 	return nil, err
 
+	// }
+
+}
+func (us *UserService) ByEmail(email string) (*User, error) {
+	var user User
+	db := us.db.Where("email = ?", email)
+	// err := db.First(&user).Error
+	err := first(db, &user)
+	return &user, err
+	// switch err {
+	// case nil:
+	// 	return &user, nil
+	// case gorm.ErrRecordNotFound:
+	// 	return nil, ErrNotFound
+	// default:
+	// 	return nil, err
+
+	// }
+	// return nil
+	// return us.db.Save(user).Error
+}
+func first(db *gorm.DB, user *User) error {
+	err := db.First(user).Error
+	if err == gorm.ErrRecordNotFound {
+		return ErrNotFound
 	}
+	return err
 
+}
+
+//Create the provided user using the data provided returns an erorr is any
+func (us *UserService) Create(user *User) error {
+	// return nil
+	return us.db.Create(user).Error
+}
+func (us *UserService) Update(user *User) error {
+	// return nil
+	return us.db.Save(user).Error
 }
 
 func (us *UserService) DestructiveReset() {
