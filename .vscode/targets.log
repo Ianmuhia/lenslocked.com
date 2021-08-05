@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Aug  5 00:38:32 2021
+# Make data base, printed on Thu Aug  5 08:15:55 2021
 
 # Variables
 
@@ -15,19 +15,23 @@ GDK_BACKEND = x11
 # environment
 LC_ALL = C
 # environment
+NO_AT_BRIDGE = 1
+# environment
 GNOME_SHELL_SESSION_MODE = pop
 # environment
 SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
+STARSHIP_SESSION_KEY = 2791844362042221
+# environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-df75a196-fbe9-4d59-9637-c9ee47938358.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-a73d2691-590c-4b8e-bf60-e401d6779552.sock
 # environment
 LC_NAME = en_US.UTF-8
 # environment
 LC_NUMERIC = en_US.UTF-8
 # environment
-VSCODE_CWD = /home/ianmuhia
+VSCODE_CWD = /home/ianmuhia/projects/personal/go/lenslocked.com
 # environment
 WINDOWPATH = 2
 # environment
@@ -54,6 +58,8 @@ PWD = /home/ianmuhia/projects/personal/go/lenslocked.com
 %D = $(patsubst %/,%,$(dir $%))
 # environment
 XDG_DATA_DIRS = /usr/share/pop:/home/ianmuhia/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+OLDPWD = /home/ianmuhia/projects/personal/go/lenslocked.com/xp
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
@@ -78,6 +84,8 @@ CURDIR := /home/ianmuhia/projects/personal/go/lenslocked.com
 VSCODE_PIPE_LOGGING = true
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -90,6 +98,8 @@ SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 XDG_CONFIG_DIRS = /etc/xdg/xdg-pop:/etc/xdg
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
+# environment
+GIT_ASKPASS = /usr/share/code/resources/app/extensions/git/dist/askpass.sh
 # environment
 VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=d30be639-df25-403a-a06d-caff03f36edb&iid=d30be639-df25-403a-a06d-caff03f36edb&sid=d30be639-df25-403a-a06d-caff03f36edb","uploadToServer":true}
 # environment
@@ -135,23 +145,29 @@ XMODIFIERS = @im=ibus
 # environment
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # environment
-SHLVL = 0
+SHLVL = 2
 # environment
 MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = /home/ianmuhia/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+PATH = /home/ianmuhia/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/ianmuhia/projects/personal/go/lenslocked.com/flutter/bin:/home/ianmuhia/bin/cache/dart-sdk/bin:/home/ianmuhia/.pub-cache/bin:/home/ianmuhia/flutter/bin:/usr/bin/Postman:/usr/local/go/bin:/home/ianmuhia/fvm/:/home/ianmuhia/projects/personal/go/lenslocked.com/xp/flutter/bin:/home/ianmuhia/bin/cache/dart-sdk/bin:/home/ianmuhia/.pub-cache/bin:/home/ianmuhia/flutter/bin:/usr/bin/Postman:/usr/local/go/bin:/home/ianmuhia/fvm/
 # default
 MAKEFILES := 
 # environment
+VSCODE_GIT_IPC_HANDLE = /run/user/1000/vscode-git-302ab9518b.sock
+# environment
 LANGUAGE = en_US:en
+# environment
+VSCODE_GIT_ASKPASS_NODE = /usr/share/code/code
 # environment
 LC_MONETARY = en_US.UTF-8
 # automatic
 ^F = $(notdir $^)
 # environment
 LC_TIME = en_US.UTF-8
+# environment
+VSCODE_GIT_ASKPASS_MAIN = /usr/share/code/resources/app/extensions/git/dist/askpass-main.js
 # environment
 INVOCATION_ID = c506ac4ab72642d48b2af8737b9dbc91
 # environment
@@ -161,19 +177,25 @@ VSCODE_LOG_NATIVE = false
 # environment
 USERNAME = ianmuhia
 # environment
+TERM_PROGRAM = vscode
+# environment
 LC_TELEPHONE = en_US.UTF-8
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
 # automatic
 ?F = $(notdir $?)
 # environment
 GTK_IM_MODULE = ibus
 # environment
 XDG_CURRENT_DESKTOP = Unity
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 # automatic
 +F = $(notdir $+)
 # environment
 DESKTOP_SESSION = pop
 # environment
-ORIGINAL_XDG_CURRENT_DESKTOP = pop:GNOME
+ORIGINAL_XDG_CURRENT_DESKTOP = Unity
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -195,15 +217,19 @@ MANAGERPID = 2872
 # environment
 LC_MEASUREMENT = en_US.UTF-8
 # environment
+STARSHIP_SHELL = bash
+# environment
 GIO_LAUNCHED_DESKTOP_FILE_PID = 18114
 # environment
-_ = /usr/share/code/code
+_ = /usr/bin/code
 # environment
 LC_PAPER = en_US.UTF-8
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
+# environment
+COLORTERM = truecolor
 # environment
 JOURNAL_STREAM = 8:36720
 # environment
@@ -221,6 +247,8 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-1bc4c13e-1.58.2-main.sock
 # environment
+TERM = xterm-256color
+# environment
 PAPERSIZE = letter
 # environment
 GOPROXY = https://proxy.golang.org,direct
@@ -232,16 +260,25 @@ GOPROXY = https://proxy.golang.org,direct
 SUFFIXES := 
 # environment
 XDG_CACHE_HOME = /home/ianmuhia/.cache
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
+TERM_PROGRAM_VERSION = 1.58.2
+# environment
 GDMSESSION = pop
 # environment
 LC_IDENTIFICATION = en_US.UTF-8
+ 
+make: *** No rule to make target 'all'.  Stop.
+ 
 # variable set hash-table stats:
-# Load=115/1024=11%, Rehash=0, Collisions=6/145=4%
+# Load=132/1024=13%, Rehash=0, Collisions=8/162=5%
 
 # Pattern-specific Variable Values
 
@@ -289,9 +326,6 @@ makefile:
 # files hash-table stats:
 # Load=5/1024=0%, Rehash=0, Collisions=0/15=0%
 # VPATH Search Paths
- 
-make: *** No rule to make target 'all'.  Stop.
- 
 
 # No 'vpath' search paths.
 
@@ -303,6 +337,6 @@ make: *** No rule to make target 'all'.  Stop.
 # strcache performance: lookups = 25 / hit rate = 20%
 # hash-table stats:
 # Load=20/8192=0%, Rehash=0, Collisions=0/25=0%
-# Finished Make data base on Thu Aug  5 00:38:32 2021
+# Finished Make data base on Thu Aug  5 08:15:55 2021
 
  
