@@ -14,8 +14,10 @@ var (
 	/**
 	 * ErrNotFound is returned when a reasouce is not found
 	 */
-	ErrNotFound  = errors.New("models: reasource not found")
-	ErrInvalidID = errors.New("models: ID provided was invalid")
+	ErrNotFound        = errors.New("models: reasource not found")
+	ErrInvalidID       = errors.New("models: ID provided was invalid")
+	ErrInvalidEmail    = errors.New("models:  invalid email was provided ")
+	ErrInvalidPassword = errors.New("models: incorrect password provided")
 )
 
 const userPwPepper = "secret-random-string"
@@ -97,6 +99,27 @@ func (us *UserService) Create(user *User) error {
 func (us *UserService) Update(user *User) error {
 	// return nil
 	return us.db.Save(user).Error
+}
+
+func (us *UserService) Authenticate(email string, password string) (*User, error) {
+	foundUser, err := us.ByEmail(email)
+	if err != nil {
+		return nil, err
+	}
+
+	err = bcrypt.CompareHashAndPassword([]byte(foundUser.PasswordHash), []byte(password+userPwPepper))
+	if err != nil {
+		switch err {
+		case bcrypt.ErrMismatchedHashAndPassword:
+			return nil, ErrInvalidPassword
+		case nil:
+		default:
+			return nil, err
+
+		}
+	}
+	return foundUser, nil
+
 }
 
 func (us *UserService) DestructiveReset() error {
