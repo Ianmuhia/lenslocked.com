@@ -24,8 +24,10 @@ func main() {
 
 	r.Handle("/", staticC.Home).Methods("GET")
 	r.Handle("/contact", staticC.Contact).Methods("GET")
-	r.HandleFunc("/signup", userC.New).Methods("GET")
+	r.Handle("/signup", userC.NewView).Methods("GET")
 	r.HandleFunc("/signup", userC.Create).Methods("POST")
+	r.Handle("/login", userC.LoginView).Methods("GET")
+	r.HandleFunc("/login", userC.Login).Methods("POST")
 
 	fmt.Println("server running in port : 8080")
 	err = http.ListenAndServe(":8080", r)
