@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Aug  5 19:04:15 2021
+# Make data base, printed on Sat Aug  7 21:13:23 2021
 
 # Variables
 
@@ -23,7 +23,7 @@ SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-d3d346b9-65d2-4f65-9832-6bc994adfe9e.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-5ad2f807-3391-4761-bde0-a1e70553496c.sock
 # environment
 LC_NAME = en_US.UTF-8
 # environment
@@ -103,7 +103,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 5756
+VSCODE_PID = 7762
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -111,7 +111,7 @@ XDG_SESSION_TYPE = x11
 # environment
 XDG_DATA_HOME = /home/ianmuhia/.local/share
 # environment
-SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/3164,unix/pop-os:/tmp/.ICE-unix/3164
+SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/3117,unix/pop-os:/tmp/.ICE-unix/3117
 # automatic
 *F = $(notdir $*)
 # environment
@@ -155,7 +155,7 @@ LC_MONETARY = en_US.UTF-8
 # environment
 LC_TIME = en_US.UTF-8
 # environment
-INVOCATION_ID = 376e9f9d2ccc451882423866b7a2f67f
+INVOCATION_ID = 99446f7ae4f9448e9638166a1bd30d8c
 # environment
 XDG_CONFIG_HOME = /home/ianmuhia/.config
 # environment
@@ -193,11 +193,11 @@ GTK_MODULES = gail:atk-bridge:appmenu-gtk-module
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 2879
+MANAGERPID = 2864
 # environment
 LC_MEASUREMENT = en_US.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 5756
+GIO_LAUNCHED_DESKTOP_FILE_PID = 7762
 # environment
 _ = /usr/share/code/code
 # environment
@@ -207,7 +207,7 @@ XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-JOURNAL_STREAM = 8:37344
+JOURNAL_STREAM = 8:37524
 # environment
 GOMODCACHE = /home/ianmuhia/go/pkg/mod
 # environment
@@ -280,11 +280,11 @@ run:
 #  File has not been updated.
 #  recipe to execute (from 'makefile', line 2):
 	go run main.go
+ 
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
- 
 #  Last modified 2021-06-30 21:28:20.503542112
 #  File has been updated.
 #  Successfully updated.
@@ -303,6 +303,6 @@ makefile:
 # strcache performance: lookups = 25 / hit rate = 20%
 # hash-table stats:
 # Load=20/8192=0%, Rehash=0, Collisions=0/25=0%
-# Finished Make data base on Thu Aug  5 19:04:15 2021
+# Finished Make data base on Sat Aug  7 21:13:23 2021
 
  

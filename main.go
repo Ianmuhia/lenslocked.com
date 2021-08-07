@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -26,7 +27,9 @@ func main() {
 	r.HandleFunc("/signup", userC.New).Methods("GET")
 	r.HandleFunc("/signup", userC.Create).Methods("POST")
 
+	fmt.Println("server running in port : 8080")
 	err = http.ListenAndServe(":8080", r)
+
 	must(err)
 
 }
