@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Aug  7 21:13:23 2021
+# Make data base, printed on Sun Aug  8 13:05:26 2021
 
 # Variables
 
@@ -23,7 +23,7 @@ SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-5ad2f807-3391-4761-bde0-a1e70553496c.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-5e9ebe7d-e6cd-4725-9ba2-addc892c201d.sock
 # environment
 LC_NAME = en_US.UTF-8
 # environment
@@ -103,7 +103,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 7762
+VSCODE_PID = 14698
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -111,7 +111,7 @@ XDG_SESSION_TYPE = x11
 # environment
 XDG_DATA_HOME = /home/ianmuhia/.local/share
 # environment
-SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/3117,unix/pop-os:/tmp/.ICE-unix/3117
+SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/3484,unix/pop-os:/tmp/.ICE-unix/3484
 # automatic
 *F = $(notdir $*)
 # environment
@@ -155,7 +155,7 @@ LC_MONETARY = en_US.UTF-8
 # environment
 LC_TIME = en_US.UTF-8
 # environment
-INVOCATION_ID = 99446f7ae4f9448e9638166a1bd30d8c
+INVOCATION_ID = b377c879c4ae4564b796ce897195dff3
 # environment
 XDG_CONFIG_HOME = /home/ianmuhia/.config
 # environment
@@ -193,11 +193,11 @@ GTK_MODULES = gail:atk-bridge:appmenu-gtk-module
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 2864
+MANAGERPID = 3130
 # environment
 LC_MEASUREMENT = en_US.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 7762
+GIO_LAUNCHED_DESKTOP_FILE_PID = 14698
 # environment
 _ = /usr/share/code/code
 # environment
@@ -207,7 +207,7 @@ XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-JOURNAL_STREAM = 8:37524
+JOURNAL_STREAM = 8:38701
 # environment
 GOMODCACHE = /home/ianmuhia/go/pkg/mod
 # environment
@@ -251,9 +251,9 @@ LC_IDENTIFICATION = en_US.UTF-8
 
 # Directories
 
-# . (device 2051, inode 15601016): 14 files, no impossibilities.
+# . (device 2051, inode 15601016): 16 files, no impossibilities.
 
-# 14 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -297,12 +297,12 @@ makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 20 / storage = 159 B / avg = 7 B
-# current buf: size = 8162 B / used = 159 B / count = 20 / avg = 7 B
+# strcache buffers: 1 (0) / strings = 22 / storage = 193 B / avg = 8 B
+# current buf: size = 8162 B / used = 193 B / count = 22 / avg = 8 B
 
-# strcache performance: lookups = 25 / hit rate = 20%
+# strcache performance: lookups = 27 / hit rate = 18%
 # hash-table stats:
-# Load=20/8192=0%, Rehash=0, Collisions=0/25=0%
-# Finished Make data base on Sat Aug  7 21:13:23 2021
+# Load=22/8192=0%, Rehash=0, Collisions=0/27=0%
+# Finished Make data base on Sun Aug  8 13:05:26 2021
 
  

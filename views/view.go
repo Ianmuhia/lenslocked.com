@@ -32,7 +32,8 @@ func NewView(layout string, files ...string) *View {
 
 type View struct {
 	Template *template.Template
-	Layout   string
+
+	Layout string
 }
 
 func (v *View) ServeHTTP(w http.ResponseWriter, r *http.Request) {
