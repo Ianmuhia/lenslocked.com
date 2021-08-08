@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
- 
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Aug  8 13:05:26 2021
+# Make data base, printed on Sun Aug  8 15:06:35 2021
 
 # Variables
 
@@ -23,7 +21,7 @@ SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-5e9ebe7d-e6cd-4725-9ba2-addc892c201d.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8bfacfdd-04d2-4746-9e23-85206bfedcb6.sock
 # environment
 LC_NAME = en_US.UTF-8
 # environment
@@ -251,9 +249,9 @@ LC_IDENTIFICATION = en_US.UTF-8
 
 # Directories
 
-# . (device 2051, inode 15601016): 16 files, no impossibilities.
+# . (device 2051, inode 15601016): 18 files, no impossibilities.
 
-# 16 files, no impossibilities in 1 directories.
+# 18 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -281,6 +279,8 @@ run:
 #  recipe to execute (from 'makefile', line 2):
 	go run main.go
  
+make: *** No rule to make target 'all'.  Stop.
+ 
 
 # Not a target:
 makefile:
@@ -297,12 +297,12 @@ makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 22 / storage = 193 B / avg = 8 B
-# current buf: size = 8162 B / used = 193 B / count = 22 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 24 / storage = 203 B / avg = 8 B
+# current buf: size = 8162 B / used = 203 B / count = 24 / avg = 8 B
 
-# strcache performance: lookups = 27 / hit rate = 18%
+# strcache performance: lookups = 29 / hit rate = 17%
 # hash-table stats:
-# Load=22/8192=0%, Rehash=0, Collisions=0/27=0%
-# Finished Make data base on Sun Aug  8 13:05:26 2021
+# Load=24/8192=0%, Rehash=0, Collisions=0/29=0%
+# Finished Make data base on Sun Aug  8 15:06:35 2021
 
  

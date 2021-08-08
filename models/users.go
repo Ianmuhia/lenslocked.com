@@ -3,6 +3,8 @@ package models
 import (
 	"errors"
 
+	"github.com/ianmuhia/lenslocked.com/hash"
+	"github.com/ianmuhia/lenslocked.com/rand"
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm/logger"
@@ -21,6 +23,21 @@ var (
 )
 
 const userPwPepper = "secret-random-string"
+const hmacSecretKey = "secret-hmac-key"
+
+type UserService struct {
+	db   *gorm.DB
+	hmac hash.HMAC
+}
+type User struct {
+	gorm.Model
+	Name         string
+	Email        string `gorm:"not null;uniqueIndex"`
+	Password     string `gorm:"-"`
+	PasswordHash string `gorm:"not null"`
+	Remember     string `gorm:"-"`
+	RememberHash string `gorm:"not null;uniqueIndex"`
+}
 
 func NewUserService(connectionInfo string) (*UserService, error) {
 
@@ -31,14 +48,12 @@ func NewUserService(connectionInfo string) (*UserService, error) {
 	if err != nil {
 		return nil, err
 	}
+	hmac := hash.NewHMAC(hmacSecretKey)
 	return &UserService{
-		db: db,
+		db:   db,
+		hmac: hmac,
 	}, nil
 
-}
-
-type UserService struct {
-	db *gorm.DB
 }
 
 /**ByID will lookup a user by the id provided
@@ -75,6 +90,18 @@ func (us *UserService) Delete(id uint) error {
 	// return &user, err
 
 }
+
+func (us *UserService) ByRemember(token string) (*User, error) {
+	rememberHash := us.hmac.Hash(token)
+	var user User
+	err := first(us.db.Where("remember_hash = ?", rememberHash), &user)
+	if err != nil {
+		return nil, err
+	}
+	return &user, nil
+
+}
+
 func first(db *gorm.DB, user *User) error {
 	err := db.First(user).Error
 	if err == gorm.ErrRecordNotFound {
@@ -93,10 +120,22 @@ func (us *UserService) Create(user *User) error {
 	}
 	user.PasswordHash = string(hashedBytes)
 	user.Password = ""
-	// return nil
+	if user.Remember == "" {
+		token, err := rand.RememberToken()
+		if err != nil {
+			return err
+		}
+		user.Remember = token
+	}
+	user.RememberHash = us.hmac.Hash(user.Remember)
+
 	return us.db.Create(user).Error
 }
 func (us *UserService) Update(user *User) error {
+	if user.Remember != "" {
+		user.RememberHash = us.hmac.Hash(user.Remember)
+
+	}
 	// return nil
 	return us.db.Save(user).Error
 }
@@ -143,12 +182,4 @@ func (us *UserService) Close() {
 	db, _ := us.db.DB()
 	db.Close()
 
-}
-
-type User struct {
-	gorm.Model
-	Name         string
-	Email        string `gorm:"not null;uniqueIndex"`
-	Password     string `gorm:"-"`
-	PasswordHash string `gorm:"not null"`
 }
