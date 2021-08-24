@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+ 
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun Aug  8 15:06:35 2021
+# Make data base, printed on Mon Aug 23 11:10:05 2021
 
 # Variables
 
@@ -21,7 +23,9 @@ SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 GJS_DEBUG_OUTPUT = stderr
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-8bfacfdd-04d2-4746-9e23-85206bfedcb6.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-53254ae3-ee9b-4998-9b91-537d69f39f7b.sock
+# environment
+MANDATORY_PATH = /usr/share/gconf/pop.mandatory.path
 # environment
 LC_NAME = en_US.UTF-8
 # environment
@@ -101,7 +105,7 @@ MAKEFILE_LIST := makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 14698
+VSCODE_PID = 6844
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -109,7 +113,7 @@ XDG_SESSION_TYPE = x11
 # environment
 XDG_DATA_HOME = /home/ianmuhia/.local/share
 # environment
-SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/3484,unix/pop-os:/tmp/.ICE-unix/3484
+SESSION_MANAGER = local/pop-os:@/tmp/.ICE-unix/4552,unix/pop-os:/tmp/.ICE-unix/4552
 # automatic
 *F = $(notdir $*)
 # environment
@@ -153,7 +157,7 @@ LC_MONETARY = en_US.UTF-8
 # environment
 LC_TIME = en_US.UTF-8
 # environment
-INVOCATION_ID = b377c879c4ae4564b796ce897195dff3
+INVOCATION_ID = 1c10ca6620494154b902173793021e7a
 # environment
 XDG_CONFIG_HOME = /home/ianmuhia/.config
 # environment
@@ -188,14 +192,16 @@ DISPLAY = :1
 USER = ianmuhia
 # environment
 GTK_MODULES = gail:atk-bridge:appmenu-gtk-module
+# environment
+DEFAULTS_PATH = /usr/share/gconf/pop.default.path
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 3130
+MANAGERPID = 3059
 # environment
 LC_MEASUREMENT = en_US.UTF-8
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 14698
+GIO_LAUNCHED_DESKTOP_FILE_PID = 6844
 # environment
 _ = /usr/share/code/code
 # environment
@@ -205,7 +211,9 @@ XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
-JOURNAL_STREAM = 8:38701
+LC_CTYPE = en_US.UTF-8
+# environment
+JOURNAL_STREAM = 8:41366
 # environment
 GOMODCACHE = /home/ianmuhia/go/pkg/mod
 # environment
@@ -241,7 +249,7 @@ GDMSESSION = pop
 # environment
 LC_IDENTIFICATION = en_US.UTF-8
 # variable set hash-table stats:
-# Load=115/1024=11%, Rehash=0, Collisions=6/145=4%
+# Load=118/1024=12%, Rehash=0, Collisions=7/148=5%
 
 # Pattern-specific Variable Values
 
@@ -249,9 +257,9 @@ LC_IDENTIFICATION = en_US.UTF-8
 
 # Directories
 
-# . (device 2051, inode 15601016): 18 files, no impossibilities.
+# . (device 2051, inode 15601016): 19 files, no impossibilities.
 
-# 18 files, no impossibilities in 1 directories.
+# 19 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -272,15 +280,13 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
+ 
 run:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'makefile', line 2):
 	go run main.go
- 
-make: *** No rule to make target 'all'.  Stop.
- 
 
 # Not a target:
 makefile:
@@ -297,12 +303,12 @@ makefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 24 / storage = 203 B / avg = 8 B
-# current buf: size = 8162 B / used = 203 B / count = 24 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 25 / storage = 207 B / avg = 8 B
+# current buf: size = 8162 B / used = 207 B / count = 25 / avg = 8 B
 
-# strcache performance: lookups = 29 / hit rate = 17%
+# strcache performance: lookups = 30 / hit rate = 16%
 # hash-table stats:
-# Load=24/8192=0%, Rehash=0, Collisions=0/29=0%
-# Finished Make data base on Sun Aug  8 15:06:35 2021
+# Load=25/8192=0%, Rehash=0, Collisions=0/30=0%
+# Finished Make data base on Mon Aug 23 11:10:05 2021
 
  

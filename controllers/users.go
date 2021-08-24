@@ -5,6 +5,7 @@ import (
 	"net/http"
 
 	"github.com/ianmuhia/lenslocked.com/models"
+	"github.com/ianmuhia/lenslocked.com/rand"
 	"github.com/ianmuhia/lenslocked.com/views"
 )
 
@@ -59,6 +60,12 @@ func (u *Users) Create(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+	err := u.signIn(w, &user)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	http.Redirect(w, r, "/cookietest", http.StatusFound)
 	// _, _ = fmt.Fprintln(w, user)
 
 }
@@ -84,29 +91,59 @@ func (u *Users) Login(w http.ResponseWriter, r *http.Request) {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 
 		}
-
 		return
 	}
-
-	cookie := http.Cookie{
-		Name:  "email",
-		Value: user.Email,
+	err = u.signIn(w, user)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
 	}
-	http.SetCookie(w, &cookie)
-	fmt.Fprintln(w, user)
+	http.Redirect(w, r, "/cookietest", http.StatusFound)
+
+	// fmt.Fprintln(w, user)
 
 	// fmt.Fprintln(w, form)
+}
+
+func (u *Users) signIn(w http.ResponseWriter, user *models.User) error {
+	if user.Remember == "" {
+		token, err := rand.RememberToken()
+		if err != nil {
+			return err
+		}
+
+		user.Remember = token
+		err = u.us.Update(user)
+		if err != nil {
+			return err
+		}
+	}
+	cookie := http.Cookie{
+		Name:  "remember_token",
+		Value: user.Remember,
+	}
+	http.SetCookie(w, &cookie)
+
+	return nil
+
 }
 
 //Display the cookie of current user
 func (u *Users) CookieTest(w http.ResponseWriter, r *http.Request) {
 
-	cookie, err := r.Cookie("email")
+	cookie, err := r.Cookie("remember_token")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 
 		return
 	}
-	fmt.Fprintln(w, "Email is : ", cookie.Value)
+	user, err := u.us.ByRemember(cookie.Value)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+
+		return
+	}
+	fmt.Fprintln(w, user)
+	// fmt.Fprintln(w, "Email is : ", cookie.Value)
 	// fmt.Fprintln(w, cookie)
 }
