@@ -21,10 +21,10 @@ type LoginForm struct {
 type Users struct {
 	NewView   *views.View
 	LoginView *views.View
-	us        *models.UserService
+	us        models.UserService
 }
 
-func NewUsers(us *models.UserService) *Users {
+func NewUsers(us models.UserService) *Users {
 	return &Users{
 		NewView:   views.NewView("bootstrap", "auth/signup"),
 		LoginView: views.NewView("bootstrap", "auth/login"),
