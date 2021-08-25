@@ -4,50 +4,14 @@ package models
 import (
 	"errors"
 
-	"gorm.io/driver/postgres"
-	"gorm.io/gorm/logger"
-
 	"github.com/ianmuhia/lenslocked.com/hash"
 	"github.com/ianmuhia/lenslocked.com/rand"
 	"golang.org/x/crypto/bcrypt"
-	_ "gorm.io/driver/postgres"
-	_ "gorm.io/gorm/logger"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm/logger"
 
 	"gorm.io/gorm"
 )
-
-func newUserGorm(connectionInfo string) (*userGorm, error) {
-
-	// dsn := "host=localhost user=postgres password=postgres dbname=lenslocked_dev port=5432 sslmode=disable"
-	db, err := gorm.Open(postgres.Open(connectionInfo), &gorm.Config{
-		Logger: logger.Default.LogMode(logger.Info),
-	})
-	if err != nil {
-		return nil, err
-	}
-	hmac := hash.NewHMAC(hmacSecretKey)
-	return &userGorm{
-		db:   db,
-		hmac: hmac,
-	}, nil
-
-}
-
-func (ug *userGorm) DestructiveReset() error {
-
-	if err := ug.db.Migrator().DropTable(&User{}); err != nil {
-		return err
-	}
-	return ug.AutoMigrate()
-
-}
-
-func (ug *userGorm) AutoMigrate() error {
-	if err := ug.db.Migrator().AutoMigrate(&User{}); err != nil {
-		return err
-	}
-	return nil
-}
 
 var (
 	// ErrNotFound is returned when a resource cannot be found
@@ -62,6 +26,16 @@ var (
 	// is used when attempting to authenticate a user.
 	ErrInvalidPassword = errors.New("models: incorrect password provided")
 )
+
+type User struct {
+	gorm.Model
+	Name         string
+	Email        string `gorm:"not null;unique_index"`
+	Password     string `gorm:"-"`
+	PasswordHash string `gorm:"not null"`
+	Remember     string `gorm:"-"`
+	RememberHash string `gorm:"not null;unique_index"`
+}
 
 // a random-string was generated from an
 // online random-string-generator to use in userPwPepper
@@ -98,19 +72,7 @@ type UserDB interface {
 	DestructiveReset() error
 }
 
-func NewUserService(connectionInfo string) (*UserService, error) {
-	ug, err := newUserGorm(connectionInfo)
-	if err != nil {
-		return nil, err
-	}
-	return &UserService{
-		UserDB: &userValidator{
-			UserDB: ug,
-		},
-	}, nil
-}
-
-type UserService struct {
+type userService struct {
 	UserDB
 }
 
@@ -123,6 +85,55 @@ var _ UserDB = &userGorm{}
 type userGorm struct {
 	db   *gorm.DB
 	hmac hash.HMAC
+}
+
+type UserService interface {
+	Authenticate(email string, password string) (*User, error)
+}
+
+func newUserGorm(connectionInfo string) (*userGorm, error) {
+
+	// dsn := "host=localhost user=postgres password=postgres dbname=lenslocked_dev port=5432 sslmode=disable"
+	db, err := gorm.Open(postgres.Open(connectionInfo), &gorm.Config{
+		Logger: logger.Default.LogMode(logger.Info),
+	})
+	if err != nil {
+		return nil, err
+	}
+	hmac := hash.NewHMAC(hmacSecretKey)
+	return &userGorm{
+		db:   db,
+		hmac: hmac,
+	}, nil
+
+}
+
+func (ug *userGorm) DestructiveReset() error {
+
+	if err := ug.db.Migrator().DropTable(&User{}); err != nil {
+		return err
+	}
+	return ug.AutoMigrate()
+
+}
+
+func (ug *userGorm) AutoMigrate() error {
+	if err := ug.db.Migrator().AutoMigrate(&User{}); err != nil {
+		return err
+	}
+	return nil
+}
+
+func NewUserService(connectionInfo string) (*userService, error) {
+	ug, err := newUserGorm(connectionInfo)
+	if err != nil {
+		return nil, err
+	}
+	return &userService{
+		UserDB: &userValidator{
+			UserDB: ug,
+		},
+	}, nil
 }
 
 // ByID will look up a user with the provided ID.
@@ -182,7 +193,7 @@ func (ug *userGorm) ByRemember(token string) (*User, error) {
 //   user, nil
 // Otherwise if another error is encountered this will return
 //   nil, error
-func (us *UserService) Authenticate(email, password string) (*User, error) {
+func (us *userService) Authenticate(email, password string) (*User, error) {
 	foundUser, err := us.ByEmail(email)
 	if err != nil {
 		return nil, err
@@ -258,14 +269,4 @@ func (ug *userGorm) Close() error {
 	//	db.Close()
 	//
 	return db.Close()
-}
-
-type User struct {
-	gorm.Model
-	Name         string
-	Email        string `gorm:"not null;unique_index"`
-	Password     string `gorm:"-"`
-	PasswordHash string `gorm:"not null"`
-	Remember     string `gorm:"-"`
-	RememberHash string `gorm:"not null;unique_index"`
 }
